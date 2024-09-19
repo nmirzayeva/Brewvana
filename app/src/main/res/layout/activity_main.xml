@@ -255,7 +255,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:tint="@color/black"
                         tools:srcCompat="@drawable/bottom_btn1"
-                        android:contentDescription="TODO" />
+                        />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
