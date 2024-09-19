@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "90842919059",
+    "project_id": "brewvana-14d01",
+    "storage_bucket": "brewvana-14d01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:90842919059:android:1abb865ac2d25af3b89d66",
+        "android_client_info": {
+          "package_name": "com.nurlanamirzayeva.brewvana"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD97yMT4JBLLmy1qumBVXzBqsZaJ31xbDA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
