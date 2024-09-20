@@ -1,7 +1,6 @@
-package com.nurlanamirzayeva.brewvana
+package com.nurlanamirzayeva.brewvana.Activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.nurlanamirzayeva.brewvana.databinding.ActivityIntroBinding
 
