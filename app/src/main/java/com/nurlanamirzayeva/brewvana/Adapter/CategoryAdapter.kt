@@ -1,20 +1,22 @@
 package com.nurlanamirzayeva.brewvana.Adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.nurlanamirzayeva.brewvana.Model.CategoryModel
+import com.nurlanamirzayeva.brewvana.R
 import com.nurlanamirzayeva.brewvana.databinding.ViewholderCategoryBinding
 
 class CategoryAdapter(val items: MutableList<CategoryModel>) :
     RecyclerView.Adapter<CategoryAdapter.Viewholder>() {
 
     private lateinit var context: Context
-    private var selectedPosition = 1
+    private var selectedPosition = -1
     private var lastSelectedPosition = -1
 
-    inner class Viewholder(private val binding: ViewholderCategoryBinding) :
+    inner class Viewholder( val binding: ViewholderCategoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
     }
 
@@ -24,13 +26,28 @@ class CategoryAdapter(val items: MutableList<CategoryModel>) :
         return Viewholder(binding)
     }
 
-    override fun onBindViewHolder(holder: CategoryAdapter.Viewholder, position: Int) {
-        TODO("Not yet implemented")
+    override fun onBindViewHolder(holder: CategoryAdapter.Viewholder, @SuppressLint("RecyclerView") position: Int) {
+
+        val item=items[position]
+        holder.binding.titleCat.text=item.title
+
+        holder.binding.root.setOnClickListener {
+            lastSelectedPosition=selectedPosition
+            selectedPosition=position
+            notifyItemChanged(lastSelectedPosition)
+            notifyItemChanged(selectedPosition)
+        }
+
+        if(selectedPosition==position){
+            holder.binding.titleCat.setBackgroundResource(R.drawable.orange_bg)
+        }else{
+            holder.binding.titleCat.setBackgroundResource(R.drawable.edittext_bg)
+        }
+
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount(): Int =items.size
+
 
 
 }
