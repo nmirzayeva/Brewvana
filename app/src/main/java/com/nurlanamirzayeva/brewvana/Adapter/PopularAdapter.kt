@@ -2,10 +2,12 @@ package com.nurlanamirzayeva.brewvana.Adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.nurlanamirzayeva.brewvana.Activity.DetailActivity
 import com.nurlanamirzayeva.brewvana.Model.ItemsModel
 import com.nurlanamirzayeva.brewvana.databinding.ViewholderPopularBinding
 
@@ -27,16 +29,19 @@ class PopularAdapter(val items: MutableList<ItemsModel>) :
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: PopularAdapter.Viewholder, position: Int) {
-        holder.biding.titleTxt.text=items[position].title
-        holder.biding.priceTxt.text="$"+items[position].price.toString()
-        holder.biding.ratingBar.rating=items[position].rating.toFloat()
-        holder.biding.extraTxt.text=items[position].extra
+        holder.biding.titleTxt.text = items[position].title
+        holder.biding.priceTxt.text = "$" + items[position].price.toString()
+        holder.biding.ratingBar.rating = items[position].rating.toFloat()
+        holder.biding.extraTxt.text = items[position].extra
 
         Glide.with(holder.itemView.context)
             .load(items[position].picUrl[0])
             .into(holder.biding.pic)
 
         holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, DetailActivity::class.java)
+            intent.putExtra("object", items[position])
+            holder.itemView.context.startActivity(intent)
 
         }
 
