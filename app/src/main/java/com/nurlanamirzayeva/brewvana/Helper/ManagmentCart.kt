@@ -2,7 +2,9 @@ package com.example.project1762.Helper
 
 import android.content.Context
 import android.widget.Toast
-
+import com.nurlanamirzayeva.brewvana.Helper.ChangeNumberItemsListener
+import com.nurlanamirzayeva.brewvana.Model.ItemsModel
+import com.nurlanamirzayeva.brewvana.Helper.TinyDB
 
 
 class ManagmentCart(val context: Context) {
@@ -10,7 +12,7 @@ class ManagmentCart(val context: Context) {
     private val tinyDB = TinyDB(context)
 
     fun insertItems(item: ItemsModel) {
-        var listItem = getListCart()
+        var listItem   = getListCart()
         val existAlready = listItem.any { it.title == item.title }
         val index = listItem.indexOfFirst { it.title == item.title }
 

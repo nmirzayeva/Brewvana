@@ -3,7 +3,9 @@ package com.nurlanamirzayeva.brewvana.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.project1762.Helper.ManagmentCart
+import com.nurlanamirzayeva.brewvana.Adapter.SizeAdapter
 import com.nurlanamirzayeva.brewvana.Model.ItemsModel
 import com.nurlanamirzayeva.brewvana.R
 import com.nurlanamirzayeva.brewvana.databinding.ActivityDetailBinding
@@ -18,7 +20,20 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         bundle()
+        initSizeList()
 
+    }
+
+    private fun initSizeList() {
+        val sizeList = ArrayList<String>()
+        sizeList.add("1")
+        sizeList.add("2")
+        sizeList.add("3")
+        sizeList.add("4")
+
+        binding.sizeList.adapter = SizeAdapter(sizeList)
+        binding.sizeList.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
     }
 
     private fun bundle() {
@@ -46,10 +61,17 @@ class DetailActivity : AppCompatActivity() {
                 )
             }
             plusCart.setOnClickListener {
-                numberItemTxt.text=(item.numberInCart+1).toString()
+                numberItemTxt.text = (item.numberInCart + 1).toString()
                 item.numberInCart++
             }
 
+            minusCart.setOnClickListener {
+                if (item.numberInCart > 0) {
+                    numberItemTxt.text = (item.numberInCart - 1).toString()
+                    item.numberInCart--
+                }
+
+            }
 
         }
 
