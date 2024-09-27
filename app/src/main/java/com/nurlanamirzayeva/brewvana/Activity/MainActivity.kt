@@ -1,5 +1,6 @@
 package com.nurlanamirzayeva.brewvana.Activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -23,14 +24,23 @@ class MainActivity : BaseActivity() {
         initCategory()
         initPopular()
         initOffers()
+        bottomMenu()
     }
 
+    private fun bottomMenu() {
+        binding.cartBtn.setOnClickListener {
+            startActivity(Intent(this@MainActivity, CartActivity::class.java))
+        }
+    }
+
+
     private fun initOffers() {
-        binding.progressBarOffer.visibility=View.VISIBLE
+        binding.progressBarOffer.visibility = View.VISIBLE
         viewModel.offer.observe(this, Observer {
-            binding.recyclerViewOffer.layoutManager=LinearLayoutManager(this@MainActivity,LinearLayoutManager.HORIZONTAL,false)
-            binding.recyclerViewOffer.adapter=OfferAdapter(it)
-            binding.progressBarOffer.visibility=View.GONE
+            binding.recyclerViewOffer.layoutManager =
+                LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
+            binding.recyclerViewOffer.adapter = OfferAdapter(it)
+            binding.progressBarOffer.visibility = View.GONE
 
         })
         viewModel.loadOffer()

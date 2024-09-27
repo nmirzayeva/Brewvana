@@ -5,10 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.project1762.Helper.ManagmentCart
+import com.nurlanamirzayeva.brewvana.Helper.ChangeNumberItemsListener
 import com.nurlanamirzayeva.brewvana.R
 import com.nurlanamirzayeva.brewvana.databinding.ActivityCartBinding
 
-class CartActivity : AppCompatActivity() {
+class CartActivity : BaseActivity() {
     lateinit var binding: ActivityCartBinding
     lateinit var managment: ManagmentCart
     private var tax: Double = 0.0
@@ -27,8 +28,19 @@ class CartActivity : AppCompatActivity() {
     }
 
     private fun initCartList() {
-        with(binding){
-            cartView.layoutManager=LinearLayoutManager(this@CartActivity,LinearLayoutManager.VERTICAL,false)
+        with(binding) {
+            cartView.layoutManager =
+                LinearLayoutManager(this@CartActivity, LinearLayoutManager.VERTICAL, false)
+            cartView.adapter = CartAdapter(
+                managment.getListCart(),
+                this@CartActivity,
+                object : ChangeNumberItemsListener {
+                    override fun onChanged() {
+                        calculateCart()
+                    }
+
+                })
+
         }
     }
 
