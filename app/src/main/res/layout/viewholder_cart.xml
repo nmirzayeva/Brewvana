@@ -17,7 +17,7 @@
         app:shapeAppearanceOverlay="@style/CircleImageView" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/titleTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -29,16 +29,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/feeEachItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="$0"
         android:textColor="@color/darkGrey"
-        app:layout_constraintStart_toStartOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintStart_toStartOf="@+id/titleTxt"
+        app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/totalEachItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="$0"
@@ -46,11 +46,49 @@
         android:textStyle="bold"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView13" />
+        app:layout_constraintStart_toStartOf="@+id/feeEachItem" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <TextView
+            android:id="@+id/plusCartBtn"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/orange_bg"
+            android:gravity="center"
+            android:text="+"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/numberItemTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/plusCartBtn"
+            app:layout_constraintStart_toEndOf="@+id/minusCartBtn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/minusCartBtn"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:gravity="center"
+            android:text="-"
+            android:textColor="@color/orange"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
