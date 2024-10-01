@@ -37,6 +37,7 @@ Watch the video demo of the app in action:
     </a>
 </div>
 
+---
 
 
 This project demonstrates my skills in modern Android development practices and libraries, with a focus on building scalable, maintainable, and user-friendly mobile applications.
