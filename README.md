@@ -2,9 +2,9 @@
 
 This is a coffee application developed in Android Studio using **Kotlin**. The app follows the **MVVM (Model-View-ViewModel)** architecture to ensure clean code and efficient UI updates. Key features include:
 
-- **Firebase**: Used for user authentication (Email/Password) and real-time storage of coffee items and special offers.
+- **Firebase**: Used for real-time storage of coffee items and special offers.
 - **Glide**: Seamless image loading and caching for coffee images.
-- **LiveData**: Observes data changes and updates the UI in real time.
+- **LiveData**: Observes data changes and updates the UI in real-time.
 - **RecyclerView**: Efficient and responsive list display for coffee items and offers.
 
 ## App Features:
